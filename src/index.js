@@ -3,18 +3,16 @@ import ReactDOM from 'react-dom';
 import {Provider} from "react-redux";
 import {ConnectedRouter} from "connected-react-router";
 import Store from "./store";
-import App from './containers';
-import './index.css';
-import reportWebVitals from './reportWebVitals'
+import Container from './containers';
+import './assets/css/index.scss';
+import reportWebVitals from './reportWebVitals';
 
 const target = document.querySelector('#root')
 
 ReactDOM.render(
   <Provider store={Store.store}>
     <ConnectedRouter history={Store.history}>
-      <div>
-        <App/>
-      </div>
+      <Container/>
     </ConnectedRouter>
   </Provider>,
   target

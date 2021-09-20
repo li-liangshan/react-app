@@ -5,7 +5,10 @@ import {
   INCREMENT_REQUESTED,
   INCREMENT,
   DECREMENT_REQUESTED,
-  DECREMENT
+  DECREMENT,
+  COLLAPSED,
+  PROGRESS,
+  HOME_CONTENT,
 } from "./actionTypes";
 
 export const increment = () => {
@@ -57,6 +60,32 @@ export const decrementAsync = () => {
         type: DECREMENT
       })
     }, 3000)
+  }
+}
+
+export const collapse = () => {
+  return dispatch => {
+    dispatch({
+      type: COLLAPSED
+    })
+  }
+}
+
+export const updateProgress = (data) => {
+  return dispatch => {
+    dispatch({
+      type: PROGRESS,
+      progress: data,
+    })
+  }
+}
+
+export const updateHomeContent = (data) => {
+  return dispatch => {
+    dispatch({
+      type: HOME_CONTENT,
+      content: data,
+    })
   }
 }
 

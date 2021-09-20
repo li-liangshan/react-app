@@ -5,6 +5,7 @@
 import {createStore, applyMiddleware, compose} from 'redux';
 import thunk from "redux-thunk";
 import {history} from './history'
+import {LoggerAction} from './middleware'
 import {routerMiddleware} from 'connected-react-router'
 import {createRootReducer} from '../reducers'
 
@@ -23,7 +24,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 const composedEnhancers = compose(
-  applyMiddleware(...middlewares),
+  applyMiddleware(...middlewares, LoggerAction),
   ...enhancers
 )
 
